@@ -1,0 +1,44 @@
+{
+"compilerOptions": {
+  "module": "commonjs",
+  "noImplicitAny": true,
+  "removeComments": true,
+  "preserveConstEnums": true,
+  "sourceMap": true,
+  //"target": "es5", apparently 2015 is newer
+  "target": "es2015",
+  "outDir": "./static/js/"
+},
+"files": [
+  "controller/base.ts",
+  "controller/operation.ts",
+
+  "model/block.ts",
+  "model/heap.ts",
+  "model/operation.ts",
+  "model/winconditions.ts",
+
+  "model/fittings/bestfit.ts",
+  "model/fittings/firstfit.ts",
+  "model/fittings/nextfit.ts",
+  "model/fittings/randomfit.ts",
+  "model/fittings/listfit.ts",
+  "model/fittings/customfit.ts",
+  "model/fittings/mallocsvc.ts",
+
+  "puzzle/puzzle.ts",
+  "puzzle/parser.ts",
+
+  "render/base.ts",
+  "render/buttonbar.ts",
+  "render/colour.ts",
+  "render/config.ts",
+  "render/memorybar.ts",
+
+  "tutorial/builder.ts",
+  "tutorial/config.ts",
+  "tutorial/engine.ts",
+  "tutorial/overlay.ts",
+  "tutorial/tutorials.ts",
+]
+}

@@ -1,0 +1,404 @@
+.noselect {
+-webkit-touch-callout: none; /* iOS Safari */
+-webkit-user-select: none; /* Safari */
+ -khtml-user-select: none; /* Konqueror HTML */
+   -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+        user-select: none; /* Non-prefixed version, currently
+                              supported by Chrome, Edge, Opera and Firefox */
+}
+
+
+#thebody {
+  background-color: #d4d4d4;
+  min-width:85
+  0px;
+}
+
+
+.wrapper {
+  display: grid;
+  grid-gap: 3em;
+  grid-template-columns: 1fr 7fr 7fr 7fr 1fr;
+  /* grid-template-rows: 30% 7% 20% 40% auto auto; */
+  grid-template-rows: 12em 2.5em (min-content 6em) 18em auto auto;
+  /*grid-template-rows: 12em 2.5em 6em 18em auto auto;*/
+  /*    header - playbutton - membar - details&buttons - code & buttons */
+  /*grid-template-columns: repeat(3, 1fr);*/
+  margin: .5%;
+  font-family: monospace;
+}
+
+.btn {
+	font-size: 8pt !important;
+}
+.btn-sidebar {
+  margin-top: 1em;
+}
+
+.rightspace {
+  padding-right: 2em;
+}
+
+.box {
+
+}
+
+.logobox {
+  grid-column: 1 / 3;
+  grid-row: 1 / 2;
+  padding: 3% ;
+}
+.logobox img {
+  position: relative;
+  /*height: 48%;*/
+  max-width: 45%;
+}
+
+
+.logo {
+   height: 7em;
+   margin-left: 2.8em;
+   /*margin-top: 1.3em;*/
+}
+
+.logo2 {
+   height: 9em;
+   margin-left: 0em;
+   /*margin-top: 1.3em;*/
+}
+
+
+.menubox {
+  grid-column: 3 / 5;
+  grid-row: 1 / 2;
+  font-size: 2em;
+  padding-top: 2.1em;
+  font-family: monospace;
+  font-weight: bold;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: stretch;
+}
+
+.menubox > a {
+  /*margin-left: 7%;
+  margin-right: 7%;*/
+}
+
+.menubox > a:link {
+  color: black;
+}
+.menubox > a:visited {
+  color:black;
+}
+
+.topborder {
+  border-radius: 3em;
+  border:3px solid white ;
+  grid-column: 1 / -1;
+  grid-row: 1 / 2;
+  min-width: 62em;
+}
+
+.play {
+  grid-column: 1/-1;
+  grid-row: 2 / 3;
+  text-align: center;
+  font-size: 160%;
+  font-family: monospace;
+  margin-top: 1em;
+  font-weight: bold;
+  white-space:nowrap;
+}
+
+.playleft {
+  grid-column: 2/3;
+  grid-row: 2 / 3;
+  text-align: left;
+  font-size: 140%;
+  font-family: monospace;
+  margin-top: 1em;
+  font-weight: bold;
+  white-space:nowrap;
+}
+
+
+.playright {
+  grid-column: 4/5;
+  grid-row: 2 / 3;
+  text-align: right;
+  font-size: 140%;
+  font-family: monospace;
+  margin-top: 1em;
+  font-weight: bold;
+  white-space:nowrap;
+}
+
+.mbarbox {
+  grid-column: 2/5;
+  grid-row: 3 / 4;
+  /*border-radius: 5px;*/
+  border-radius: .7em;
+  border:3px solid black ;
+  height: 100px;
+  min-width: 56em;
+}
+
+/*
+#memoryBar {
+  border: 0px;
+  width: 100%;
+  height: 100px;
+  margin: 0px;
+  padding: 0px;
+}
+*/
+
+.memorybar {
+  border: 0px;
+  width: 100%;
+  height: 100px;
+  margin: 0px;
+  padding: 0px;
+}
+
+.detailbox {
+  /* position: relative; */
+  border-radius: 3em;
+  border:3px solid black;
+  padding: 3%;
+  grid-column: 2 / 3;
+  grid-row: 4 / 5;
+  font-size: 10pt;
+  min-height: 300px;
+  min-width: 18em;
+  overflow: scroll;
+  /*margin: 1em;*/
+}
+
+.detailbox table {
+  clear: both;
+  display: block;
+  /*position: absolute;*/
+  height: 100%;
+}
+
+.detailbox a {
+  font-style: italic;
+  color:black;
+  font-size: 8pt;
+}
+.detailbox a:visited {
+  font-style: italic;
+  color:black;
+}
+.detailbox a:hover {
+  font-style: oblique !important;
+  text-decoration: none;
+  color:black;
+}
+.detailbox th {
+  padding-right: .8em;
+}
+.detailbox tr > th {
+  vertical-align: top;
+}
+.detailbox tr > td {
+  vertical-align: top;
+}
+
+.puzzlecodebox {
+  grid-column: 2 / 3;
+  grid-row: 5 / 6;
+  border-radius: 3em;
+  border:3px solid black;
+  padding: 2%;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  display: none;
+  text-align: center;
+}
+
+.puzzlecodebox > #customPuzzleLabel {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  font-size: large;
+  font-weight: bold;
+}
+
+#puzzlecode {
+  margin-left: auto;
+  margin-right: auto;
+  min-height: 8em;
+  max-width: 90%;
+  margin-bottom: 2%;
+  display: block;
+  width: 90%;
+  height: 60%;
+}
+#setPuzzleButton {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.buttonbox {
+  /* display: flex; */
+  border-radius: 3em;
+  border:3px solid black ;
+  grid-column: 3 / 5;
+  grid-row: 4 / 7;
+  padding: 1em;
+  margin: 0em 1em 1em 1em;
+  min-width: 35em;
+}
+
+.buttonrow {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: stretch;
+}
+
+.operationbutton {
+  white-space: normal;
+}
+
+.contentborder {
+  border-radius: 3em;
+  border:3px solid white ;
+  grid-column: 1 / -1;
+  grid-row: 2 / 7;
+  min-width: 62em;
+}
+
+.content {
+  grid-column: 2 / -2;
+  grid-row: 2 / 7;
+  /*margin: 1em;*/
+  padding: 1em;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+}
+.content h1 {
+  padding-bottom: .5em;
+  font-weight: bold;
+}
+.content h2 {
+  padding-top: .8em;
+  /*font-weight: bold;*/
+}
+.content h3 {
+  padding-top: .5em;
+  font-weight: bold;
+}
+
+.menuselected {
+  font-style: italic;
+}
+
+
+#topbar {/*
+  margin-left:auto;
+  margin-right:auto;
+  margin-top: 3%;
+  width: 90%;
+  min-height: 30px;
+  border-radius: 5px;
+  */
+}
+
+
+.title {
+  font-size: 200%;
+  font-weight: bold;
+
+}
+
+
+#buttonBar {
+  border: 0px solid black;
+  width: 100%;
+}
+
+.details > h3 {
+  text-align: center;
+}
+
+/* Style the sticky div */
+#stickydiv {
+  overflow: hidden;
+  background-color: #ddd;
+  min-height: 125px;
+}
+
+
+#screensize-overlay {
+  display: block;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  background-color: '#444444';
+  background: rgba(60,60,60,0.9);
+  font-size: 20pt;
+  font-size: 4vw;
+  color: white;
+  text-align: center;
+  white-space: normal;
+}
+
+
+/* The sticky class is added to the navbar with JS when it reaches its scroll position */
+.sticky {
+  position: fixed;
+  display: block;
+  /*top: 0;*/
+  left: 0;
+  right: 0;
+  margin-left:2%;
+  margin-right:2%;
+  width: 96%;
+}
+
+.stickyoverlay {
+  position: fixed;
+  display: block;
+  /*top: 0;*/
+  left: 0;
+  right: 0;
+  margin-left:2%;
+  margin-right:2%;
+  width: 96%;
+  z-index: 3;
+}
+
+.footer > .right {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: right;
+  padding-right: 1em;
+  text-shadow: 1px 1px #333;
+}
+
+
+.footer > .left {
+  font-size: 80%;
+}
+
+/* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
+/*
+.sticky + .wrapper {
+  padding-top: 60px;
+}
+*/

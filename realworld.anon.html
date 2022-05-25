@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hack the Heap: The Game</title>
+    <link rel="stylesheet" type="text/css" href="static/game.css">
+    <link rel="stylesheet" type="text/css" href="static/tutorial.css">
+	  <link rel="icon" href="static/images/computer.ico" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=.9, maximum-scale=1, user-scalable=no">
+    <!-- JQuery -->
+    <script src="static/include/jquery.3.3.1.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="static/include/bootstrap.3.4.1.min.css">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="static/include/bootstrap-theme.3.4.1.min.css">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="static/include/bootstrap.3.4.1.min.js"></script>
+    <!-- game files -->
+    <script src="static/js/controller/base.js" type="text/javascript"></script>
+    <script src="static/js/controller/operation.js" type="text/javascript"></script>
+    <script src="static/js/model/block.js" type="text/javascript"></script>
+    <script src="static/js/model/heap.js" type="text/javascript"></script>
+    <script src="static/js/model/operation.js" type="text/javascript"></script>
+    <script src="static/js/model/winconditions.js" type="text/javascript"></script>
+    <script src="static/js/model/fittings/bestfit.js" type="text/javascript"></script>
+    <script src="static/js/model/fittings/firstfit.js" type="text/javascript"></script>
+    <script src="static/js/model/fittings/nextfit.js" type="text/javascript"></script>
+    <script src="static/js/model/fittings/randomfit.js" type="text/javascript"></script>
+    <script src="static/js/model/fittings/listfit.js" type="text/javascript"></script>
+    <script src="static/js/model/fittings/mallocsvc.js" type="text/javascript"></script>
+    <script src="static/js/puzzle/parser.js" type="text/javascript"></script>
+    <script src="static/js/puzzle/puzzle.js" type="text/javascript"></script>
+    <script src="static/js/render/base.js" type="text/javascript"></script>
+    <script src="static/js/render/buttonbar.js" type="text/javascript"></script>
+    <script src="static/js/render/colour.js" type="text/javascript"></script>
+    <script src="static/js/render/config.js" type="text/javascript"></script>
+    <script src="static/js/render/memorybar.js" type="text/javascript"></script>
+    <!-- tutorial system -->
+    <script src="static/js/tutorial/builder.js" type="text/javascript"></script>
+    <script src="static/js/tutorial/config.js" type="text/javascript"></script>
+    <script src="static/js/tutorial/engine.js" type="text/javascript"></script>
+    <script src="static/js/tutorial/overlay.js" type="text/javascript"></script>
+    <script src="static/js/tutorial/tutorials.js" type="text/javascript"></script>
+    <!-- cookie system -->
+    <script src="static/js/fcns.js" type="text/javascript"></script>
+</head>
+<body id="thebody">
+  <div class="wrapper container-fluid">
+      <div class="topborder"> </div>
+      <div class="box logobox">
+        <!--<span class="noselect title">Hack the Heap!</span><br />-->
+        <img class="logo" src="static/images/hacktheheap.png" />
+        <img class="logo2" src="static/images/vraagtekenwolk.png" />
+      </div>
+      <div class="box menubox">
+        <!--<a href="index.htm">Home</a>-->
+        <a href="play.htm">Play</a>
+        <a href="tut.htm">How to</a>
+        <a class="menuselected" href="realworld.htm">Realistic Puzzles</a>
+        <a href="about.htm">About</a>
+      </div>
+      <div class="contentborder"> </div>
+      <div class="play" style="font-size:130%">Real world puzzles can be large, so it may take a while before the game starts.</div>
+    <div id="stickydiv" class="box mbarbox" style="min-height:120px"><!--position: -webkit-sticky;position:sticky;-->
+    </div>
+    <!--position: -webkit-sticky;position:sticky;-->
+    <div class="noselect box detailbox">
+      <h3>Puzzle Details</h3>
+      <p id="puzzleDetails" ></p>
+    </div>
+    <div id="puzzlecodebox" class="box puzzlecodebox">
+      <span id="customPuzzleLabel">Play custom puzzle: </span>
+      <textarea id="puzzlecode"></textarea>
+      <button id="setPuzzleButton" onclick="game.saved=true;game.puzzleCode = document.getElementById('puzzlecode').value;game.restart()" type="button" class="btn btn-outline-primary">Play puzzle</button>
+    </div>
+    <div class="box buttonbox" id="buttondiv">
+  </div>
+
+<!--</div>-->
+</div> <!-- wrapper div -->
+<script>
+    checkScreenSize();
+    var game;
+    /*
+    let userlevel = getCookie("heaplevel");
+    if (userlevel == "") {
+      game = Tutorials.CookieBanner();
+      addWindowResizeListener(game);
+      game.start();
+    } else {
+    */
+      //document.getElementById('leveldiv').innerHTML = "Level: " + userlevel;
+      game = new GameController();
+      fetch(window.location.origin + RenderConfig.SVCSubdirectory, {
+        method: 'POST',
+        body: '{"action":"puzzlerequest","level":-2}',
+        headers: {'Content-Type': 'application/json; charset=UTF-8',
+          'content-length': '38'}
+      }).then(function(response) {
+        return response.json();
+      }).then(function(json) {
+        //console.log(text);
+        game.pid = json["id"];
+        game.player = getCookie('uid');
+        game.puzzleCode = json["puzzle"];
+        //game.showCustom();
+        game.start();
+        addWindowResizeListener(game);
+        game.changed(true, true);
+      });
+    //}
+</script>
+<div class="footer">
+  <span class="right"></span>
+</div>
+</body>
+</html>

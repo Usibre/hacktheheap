@@ -1,0 +1,14 @@
+[Unit] 
+Description=Backend for the HTH Game
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=apache
+ExecStart=/usr/bin/env python3 /home/ec2-user/hth/backend/heaps/ptmallocsvc.py
+
+[Install]
+WantedBy=multi-user.target

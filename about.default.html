@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hack the Heap: The Game</title>
+    <link rel="stylesheet" type="text/css" href="static/game.css">
+	  <link rel="icon" href="static/images/computer.ico" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=.9, maximum-scale=1, user-scalable=no">
+    <!-- JQuery -->
+    <script src="static/include/jquery.3.3.1.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="static/include/bootstrap.3.4.1.min.css">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="static/include/bootstrap-theme.3.4.1.min.css">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="static/include/bootstrap.3.4.1.min.js"></script>
+    <!-- game files -->
+    <script src="static/js/fcns.js" type="text/javascript"></script>
+</head>
+<body id="thebody">
+  <div class="wrapper container-fluid">
+      <div class="topborder"> </div>
+      <div class="box logobox">
+        <!--<span class="noselect title">Hack the Heap!</span><br />-->
+        <img class="logo" src="static/images/hacktheheap.png" />
+        <img class="logo2" src="static/images/vraagtekenwolk.png" />
+      </div>
+      <div class="box menubox">
+        <!--<a href="index.htm">Home</a>-->
+        <a href="play.htm">Play</a>
+        <a href="tut.htm">How to</a>
+        <a href="realworld.htm">Realistic Puzzles</a>
+        <a class="menuselected" href="about.htm">About</a>
+      </div>
+      <div class="contentborder">
+        <div class="content">
+          <h1>About <i>Hack the Heap</i>!</h1>
+          <p>Hack the Heap is a puzzle game created for multiple purposes.
+          First and foremost, solving these puzzles provides us with valuable
+          solutions in a problem called <i>heap layout manipulation</i>, also
+          known as heap feng shui or heap massaging.
+          Furthermore, this game can be used for educational purposes, as it
+          simulates the inner workings of heap allocators and heap memory
+          vulnerabilities.
+          Although the puzzle itself is a simplified representation of reality,
+          we aim to keep the puzzles both reasonably realistic and challenging
+          to play. </p>
+
+          <h3>Playing a custom game</h3>
+          <p>Custom games can be played (and even created from real-world
+            applications, although this is not available yet).
+            In order to do so, you can go to the cookie-free game
+            <a href="./game.htm">here</a> and press the "show editor" button
+            on the left.
+            A new box will appear where a custom game code can be inserted.
+          </p>
+
+
+          <h2>What the game represents</h2>
+
+          <h3>Heap Memory in a nutshell<sup>1</sup></h3>
+          <p>A computer application requires memory to store data.
+          One common place to store data<sup>2</sup> is the heap.
+          The heap is dynamic, meaning that a size of memory can be requested
+          or given back at any time. This process of requesting and getting a
+          given amount of bytes is called <i>memory allocation</i></p>
+          <p>Behind the scenes, a memory allocator handles these requests.
+          Generally, memory allocators have one large chunk of memory and chip
+          away from this chunk whenever an allocation is done. If not enough memory
+          is available, the allocator tries to make its own memory chunk bigger
+          or alternatively, fails to allocate.</p>
+          <p>This game represents a variety of situations that could occur with
+          a multitude of allocators. For example, the 'allocation method' represents
+          a technique for deciding what area to pick from in our large chunk.
+          At the same time, performing a single operation on an application (e.g.
+          saving a file by clicking ctrl+s), more than one allocation might be
+          required. As such, buttons in the game can place more than one puzzle
+          pieces (representing multiple allocations). </p>
+
+          <h3>Heap Layout Manipulation<sup>1</sup></h3>
+          <p>
+            As the game shows, the heap can be manipulated in a series of operations.
+            In particular, these series of operations can end up making one piece
+            of allocated memory directly adjacent to another chosen piece. After all,
+            the puzzle is solved generally when this happens depending on the type of puzzle.
+          </p><p>
+            Occasionally it happens that a developer makes a mistake, and the application
+            ends up not only writing into the newly allocated piece, but writing
+            beyond this piece into the next piece of memory.
+            This is what we refer to as a <i>Heap Overflow</i>.
+            Hackers can try to abuse this, but this is often a very precise and complex
+            matter.
+          </p><p>
+            One of the techniques to aid this is heap layout manipulation: making sure
+            that the hacker writes in the exact spot where they wants.
+            By solving the puzzles here, you solve the same problem as real exploit
+            writers / hackers: just in a visual way.
+            As mentioned before, some puzzles are simplified representations that
+            do not occur in a real world scenario.
+            Others on the other hand, can be used directly in a real-world scenario to
+            solve the problem of heap layout manipulation.
+          </p><p>
+            The main importance of this project is <i>not</i> mainly to help hackers though.
+            Instead, being able to solve the heap layout manipulation provides a valid
+            metric to understand the severity of a vulnerability. Being able to solve
+            the HLM problem tells us that a vulnerability is very likely to be abusable
+            by hackers and thus that the problem needs to be fixed.
+            By people like you playing the game, we can make the world a little safer!
+          </p>
+
+          <h2>Research</h2>
+          <p>
+          This game was created as a research project with two main goals.
+          First, the puzzle results provide results that can be utilised in a
+          real-world scenario of solving the heap layout manipulation problem.
+          This aids cyber security experts to assess the severity of a vulnerability;
+          aids exploit writers to solve the problem or merely find out whether
+          a solution to the problem exists at all.
+          </p><p>
+          Secondly, the game can be used in an educational setting. Mind that
+          the game simulates the inner workings of heap allocators. Computer science
+          students and enthousiasts can play the game, getting an intuitive understanding
+          of the heap, heap allocators and the pros and cons of various allocation techniques.
+          Furthermore, the game shows the importance of memory safety issues,
+          how to abuse them and why we should care about them.
+          </p>
+
+          <h2>Authors</h2>
+          <p>
+          This game is developed by <a href="/">Jordy Gennissen</a>, being supervised
+          by Dan O'Keeffe on this project.
+          A number of other people were involved in this projects, including
+          (but not limited to) Manouk Locher in design, Jorge Blasco and a number of
+          testers playing the game and providing useful feedback that greatly improved
+          the quality of the puzzle game.
+          </p>
+
+
+
+          <!-- footnotes -->
+          <span style="padding-top: 4em">
+            <br /><sup>1</sup><sub>Simplified.</sub>
+            <br /><sup>2</sup><sub>Apart from the stack and the globals section. </sub>
+          </span>
+          <span style="float:right">
+            <button type="button" class="btn btn-secondary" onclick="resetCookie('heaplevel');window.location = './play.htm'">
+              Reset levels
+            </button>
+          </span>
+        </div>
+
+      </div>
+<!--</div>-->
+</div> <!-- wrapper div -->
+<div class="footer">
+  <span class="right">Design by Manouk Locher</span>
+</div>
+</body>
+</html>

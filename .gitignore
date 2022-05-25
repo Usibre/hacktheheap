@@ -1,0 +1,10 @@
+*.js
+*.js.map
+.DS_Store
+*.log
+node_modules
+*.swp
+*.copy.ts
+*.old.ts
+*.o
+malloc_probe

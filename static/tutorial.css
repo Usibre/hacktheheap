@@ -1,0 +1,102 @@
+#tutoverlay {
+  display: block;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  z-index: 2;
+  background-color: '#444444';
+  background: rgba(60,60,60,0.5);
+
+}
+
+.tutorial-overlay-full {
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+
+}
+
+.tutorial-overlay-left {
+  left: 0;
+  width: 35%;
+  height: 100%;
+}
+
+.tutorial-overlay-right {
+  right: 0;
+  width: 65%;
+  height: 100%;
+}
+
+#tutorial-mascot {
+  margin: 5%;
+  position: fixed;
+  margin-top: 25%;
+  height: 50%;
+}
+
+.tutorial-mascot-full {
+
+}
+
+.tutorial-mascot-left {
+  margin-left: -5% !important;
+}
+
+.tutorial-mascot-right {
+  margin-right: -5% !important;
+}
+
+.tutorial-textimage {
+  margin: 5%;
+  margin-top: 5%;
+  margin-left: 20%;
+  margin-right: 50%;
+
+}
+
+.tutorial-textimage-full {
+  height: 28%;
+  /*height: 22em;*/
+  width: 28%;
+}
+
+.tutorial-textimage-left {
+  /*height: 55%;*/
+  width: 70%;
+}
+
+.tutorial-textimage-right {
+  margin-top: 5% !important;
+  margin-right: 20% !important;
+  width: 42%;
+}
+
+
+.centered-text {
+  font-size: 12pt;
+  font-size: 1.2vw;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 46%;
+}
+
+.centered-text-full {
+  left: 36%;
+  width: 18%;
+}
+
+
+.centered-text-left {
+  left: 54%;
+  /* transform: translate(-50%, -50%); */
+  width: 33%;
+}
+
+.centered-text-right {
+  top: 45% !important;
+  right: 19%;
+  /* transform: translate(-50%, -50%); */
+  width: 30%;
+}
